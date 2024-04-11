@@ -31,7 +31,7 @@ const page = () => {
     <div>
       <div
         className={`bg-[url('/assets/bg-3.jpg')] bg-center bg-cover transition-transform duration-1000 ${
-          loaded ? "scale-110" : "scale-95"
+          loaded ? "scale-95" : "scale-110"
         }`}
       >
         <h1 className="container py-32 text-6xl font-semibold text-black tracking-widest text-center lg:py-36">

@@ -32,7 +32,7 @@ const page = () => {
   return (
     <div>
       <div className="bg-[url('/assets/projects/Sofa.png')] bg-center bg-cover">
-        <h1 className="container py-40 text-6xl font-semibold tracking-widest text-white">
+        <h1 className="container py-36 text-6xl font-semibold tracking-widest text-white">
           Our Services
         </h1>
       </div>
@@ -58,6 +58,59 @@ const page = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Mission and Vision section start */}
+
+      <div className="container lg:h-[500px] h-auto w-full flex lg:flex-row flex-col items-center justify-center bg-tertiary gap-4 mb-28">
+        <div className="w-full ">
+          <h2 className="text-5xl font-semibold pb-10">Mission</h2>
+          <p className="text-xl leading-8">
+            Our purpose is to craft captivating settings where our clients' life
+            stories unfold. We are entrusted with the task of selecting the
+            perfect sofa for heart-to-heart conversations, a table where budding
+            artists bring their visions to life, and fabrics that stir memories
+            decades later. Within these walls, emotions like hope, joy, sadness,
+            and laughter resonate. It's both a privilege and a commitment to
+            design spaces that amplify life's experiences.
+          </p>
+        </div>
+        <div className="w-full ">
+          <div className="relative lg:h-[600px] h-[400px]">
+            <Image
+              src="/assets/projects/mission.jpg"
+              layout="fill"
+              objectFit="cover"
+              alt="Mission"
+              className="rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Vision Section started */}
+      <div className="container  h-auto w-full flex lg:flex-row flex-col items-center justify-center  gap-4 mb-28">
+        <div className="w-full ">
+          <Image
+            src="/assets/projects/mission.jpeg"
+            width={800} // Increase width
+            height={1200} // Increase height
+            alt="Vision"
+            className="rounded-xl"
+          />
+        </div>
+        <div className="w-full ">
+          <h2 className="text-5xl font-semibold pb-10">Vision</h2>
+          <p className="text-xl leading-8">
+            Our purpose is to craft captivating settings where our clients' life
+            stories unfold. We are entrusted with the task of selecting the
+            perfect sofa for heart-to-heart conversations, a table where budding
+            artists bring their visions to life, and fabrics that stir memories
+            decades later. Within these walls, emotions like hope, joy, sadness,
+            and laughter resonate. It's both a privilege and a commitment to
+            design spaces that amplify life's experiences.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { TbArrowUpRight } from "react-icons/tb";
 
 const CtaSection = () => {
   return (
-    <div className="pt-12 pb-32">
+    <div className="pt-12 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-8">
         <motion.h2
           initial="offscreen"
