@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { TbArrowUpRight } from "react-icons/tb";
@@ -8,6 +8,17 @@ import { desVariants, tagVariants, titleVariants } from "@/utils/animation";
 
 const page = () => {
   const ref = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // Set a timeout to simulate a delay for the transition effect
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 1000); // Adjust the delay time as needed
+
+    // Clear the timeout on component unmount to prevent memory leaks
+    return () => clearTimeout(timer);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -18,8 +29,12 @@ const page = () => {
 
   return (
     <div>
-      <div className="bg-[url('/assets/bg-3.jpg')] bg-center bg-cover">
-        <h1 className="container py-32 text-6xl font-semibold text-black tracking-widest text-center lg:py-48">
+      <div
+        className={`bg-[url('/assets/bg-3.jpg')] bg-center bg-cover transition-transform duration-1000 ${
+          loaded ? "scale-110" : "scale-95"
+        }`}
+      >
+        <h1 className="container py-32 text-6xl font-semibold text-black tracking-widest text-center lg:py-36">
           Who are we?
         </h1>
       </div>

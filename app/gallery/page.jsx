@@ -1,105 +1,99 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-const page = () => {
+const Page = () => {
+  // Array of all images
+  const allImages = [
+    { src: "/assets/gallery/bedroom-1.jpeg", category: "residential" },
+    { src: "/assets/gallery/gallery-1.jpeg", category: "residential" },
+    { src: "/assets/bedroom.jpg", category: "residential" },
+    { src: "/assets/gallery/gallery-2.jpeg", category: "commercial" },
+    { src: "/assets/gallery/gallery-5.jpeg", category: "commercial" },
+    { src: "/assets/gallery/gallery-4.jpeg", category: "commercial" },
+    { src: "/assets/gallery/gallery-7.jpeg", category: "residential" },
+    { src: "/assets/gallery/gallery-8.jpeg", category: "residential" },
+    { src: "/assets/gallery/gallery-9.jpeg", category: "commercial" },
+    { src: "/assets/gallery/gallery-10.jpeg", category: "commercial" },
+    { src: "/assets/gallery/gallery-16.jpeg", category: "commercial" },
+    { src: "/assets/gallery/gallery-11.jpeg", category: "residential" },
+    { src: "/assets/gallery/gallery-12.jpeg", category: "commercial" },
+    { src: "/assets/gallery/gallery-13.jpeg", category: "residential" },
+    { src: "/assets/gallery/gallery-14.jpeg", category: "commercial" },
+    { src: "/assets/gallery/gallery-15.jpeg", category: "residential" },
+  ];
+
+  // State variables
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [filteredImages, setFilteredImages] = useState(allImages);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // Set a timeout to simulate a delay for the transition effect
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 1000); // Adjust the delay time as needed
+
+    // Clear the timeout on component unmount to prevent memory leaks
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Event handler for category selection change
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+
+    // Filter images based on selected category
+    if (category === "") {
+      setFilteredImages(allImages);
+    } else {
+      const filtered = allImages.filter((image) => image.category === category);
+      setFilteredImages(filtered);
+    }
+  };
+
+  const columnsCountBreakPoints = { 350: 1, 750: 3, 900: 4 };
   return (
-    <div className="container py-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div className="flex flex-col gap-4">
-        <div>
-          <img
-            src="/assets/gallery/bedroom-1.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/gallery/gallery-1.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/bedroom.jpg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
+    <div>
+      <div
+        className={`bg-[url('/assets/gallery/gallerybg.jpg')] bg-center bg-cover transition-transform duration-1000 ${
+          loaded ? "scale-95" : "scale-110"
+        }`}
+      >
+        <h1 className="container py-28 text-6xl font-semibold text-white tracking-widest text-center lg:py-36">
+          Gallery
+        </h1>
       </div>
-
-      <div className="flex flex-col gap-4">
-        <div>
-          <img
-            src="/assets/gallery/gallery-2.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/gallery/gallery-5.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/gallery/gallery-4.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
+      <div className="container mt-10 flex justify-start">
+        {/* Category dropdown */}
+        <select
+          className="border border-gray-300 rounded-md px-3 py-3 outline-none focus:border-tertiary bg-tertiary text-black dark:text-white"
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+        >
+          <option value="">Choose Category</option>
+          <option value="residential">Residential Interior</option>
+          <option value="commercial">Commercial Interior</option>
+        </select>
       </div>
-
-      <div className="flex flex-col gap-4">
-        <div>
-          <img
-            src="/assets/gallery/gallery-7.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/gallery/gallery-8.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/gallery/gallery-9.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-4">
-        <div>
-          <img
-            src="/assets/gallery/gallery-10.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/gallery/gallery-5.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/gallery/gallery-11.jpeg"
-            alt=""
-            className="h-auto max-w-full rounded-lg hover:scale-90 transition-all"
-          />
-        </div>
+      <div className="container py-20">
+        <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
+          <Masonry gutter="16px">
+            {/* Mapping filtered images array to render images */}
+            {filteredImages.map((image, index) => (
+              <div key={index} className="w-full">
+                <img
+                  src={image.src}
+                  alt=""
+                  className="w-full rounded-lg hover:scale-90 transition-all"
+                />
+              </div>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       </div>
     </div>
   );
 };
 
-export default page;
+export default Page;

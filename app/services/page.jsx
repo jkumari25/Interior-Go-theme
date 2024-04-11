@@ -32,7 +32,7 @@ const page = () => {
   return (
     <div>
       <div className="bg-[url('/assets/projects/Sofa.png')] bg-center bg-cover">
-        <h1 className="container py-64 text-6xl font-semibold tracking-widest text-white">
+        <h1 className="container py-40 text-6xl font-semibold tracking-widest text-white">
           Our Services
         </h1>
       </div>
