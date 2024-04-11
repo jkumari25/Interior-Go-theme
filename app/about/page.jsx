@@ -18,8 +18,8 @@ const page = () => {
 
   return (
     <div>
-      <div className="bg-[url('/assets/whoweare.jpg')] bg-center bg-cover">
-        <h1 className="container py-32 text-6xl font-semibold text-black tracking-widest text-center lg:py-64">
+      <div className="bg-[url('/assets/bg-3.jpg')] bg-center bg-cover">
+        <h1 className="container py-32 text-6xl font-semibold text-black tracking-widest text-center lg:py-48">
           Who are we?
         </h1>
       </div>
