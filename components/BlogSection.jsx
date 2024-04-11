@@ -60,9 +60,12 @@ const BlogSection = () => {
             height={220}
             className="w-full"
           />
-          <p>
-            Biophilic Design: Connecting Nature and Interiors for Well-being
-          </p>
+          <div className="p-2">
+            <p>March 15,2024</p>
+            <p className="text-xl font-semibold">
+              Biophilic Design: Connecting Nature and Interiors for Well-being
+            </p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <Image
@@ -72,9 +75,13 @@ const BlogSection = () => {
             height={220}
             className="w-full"
           />
-          <p>
-            Multifunctional Furniture: Space-Saving Solutions for Compact Homes
-          </p>
+          <div className="p-2">
+            <p>March 15,2024</p>
+            <p className="text-xl font-semibold">
+              Multifunctional Furniture: Space-Saving Solutions for Compact
+              Homes
+            </p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <Image
@@ -84,7 +91,12 @@ const BlogSection = () => {
             height={220}
             className="w-full"
           />
-          <p>Artistic Expressions: Incorporating Art into Interior Design</p>
+          <div className="p-2">
+            <p>March 15,2024</p>
+            <p className="text-xl font-semibold">
+              Artistic Expressions: Incorporating Art into Interior Design
+            </p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <Image
@@ -94,7 +106,12 @@ const BlogSection = () => {
             height={220}
             className="w-full"
           />
-          <p>Open Concept Living: Embracing Airy Interior Layouts</p>
+          <div className="p-2">
+            <p>March 15,2024</p>
+            <p className="text-xl font-semibold">
+              Open Concept Living: Embracing Airy Interior Layouts
+            </p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <Image
@@ -104,10 +121,13 @@ const BlogSection = () => {
             height={220}
             className="w-full"
           />
-          <p>
-            Global Design Inspirations: Exploring Cultural Influences in
-            Interiors
-          </p>
+          <div className="p-2">
+            <p>March 15,2024</p>
+            <p className="text-xl font-semibold">
+              Global Design Inspirations: Exploring Cultural Influences in
+              Interiors
+            </p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <Image
@@ -117,7 +137,12 @@ const BlogSection = () => {
             height={220}
             className="w-full"
           />
-          <p>Emerging Trends: Exploring the Latest in Interior Design</p>
+          <div className="p-2">
+            <p>March 15,2024</p>
+            <p className="text-xl font-semibold">
+              Emerging Trends: Exploring the Latest in Interior Design
+            </p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <Image
@@ -127,9 +152,12 @@ const BlogSection = () => {
             height={220}
             className="w-full"
           />
-          <p>
-            Biophilic Design: Connecting Nature and Interiors for Well-being
-          </p>
+          <div className="p-2">
+            <p>March 15,2024</p>
+            <p className="text-xl font-semibold">
+              Biophilic Design: Connecting Nature and Interiors for Well-being
+            </p>
+          </div>
         </SwiperSlide>
       </Swiper>
     </div>
