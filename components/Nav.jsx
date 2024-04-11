@@ -20,8 +20,8 @@ const links = [
     name: "gallery",
   },
   {
-    path: "/projects",
-    name: "projects",
+    path: "/services",
+    name: "services",
   },
   {
     path: "/contact",

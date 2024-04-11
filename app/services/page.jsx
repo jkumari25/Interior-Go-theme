@@ -31,9 +31,9 @@ const projects = [
 const page = () => {
   return (
     <div>
-      <div className="bg-[url('/assets/projects/sofa.png')] bg-center bg-cover">
+      <div className="bg-[url('/assets/projects/Sofa.png')] bg-center bg-cover">
         <h1 className="container py-64 text-6xl font-semibold tracking-widest text-white">
-          Our Projects
+          Our Services
         </h1>
       </div>
 
