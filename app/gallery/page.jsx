@@ -39,8 +39,7 @@ const Page = () => {
   }, []);
 
   // Event handler for category selection change
-  const handleCategoryChange = (e) => {
-    const category = e.target.value;
+  const handleCategoryChange = (category) => {
     setSelectedCategory(category);
 
     // Filter images based on selected category
@@ -64,17 +63,19 @@ const Page = () => {
           Gallery
         </h1>
       </div>
-      <div className="container mt-10 flex lg:justify-start justify-center">
-        {/* Category dropdown */}
-        <select
-          className="border border-gray-300 rounded-md px-3 py-3 outline-none focus:border-tertiary bg-tertiary text-black dark:text-white"
-          value={selectedCategory}
-          onChange={handleCategoryChange}
+      <div className="container mt-10 flex lg:justify-start justify-center gap-8">
+        <div
+          className="bg-primary text-white px-8 py-3 rounded-lg "
+          onClick={() => handleCategoryChange("residential")}
         >
-          <option value="">Choose Category</option>
-          <option value="residential">Residential Interior</option>
-          <option value="commercial">Commercial Interior</option>
-        </select>
+          Residential Interior
+        </div>
+        <div
+          className="bg-primary text-white px-8 py-3 rounded-lg"
+          onClick={() => handleCategoryChange("commercial")}
+        >
+          Commercial Interior
+        </div>
       </div>
       <div className="container lg:py-20 py-10">
         <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>

@@ -37,21 +37,9 @@ const projects = [
 const page = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [filteredImages, setFilteredImages] = useState(projects);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    // Set a timeout to simulate a delay for the transition effect
-    const timer = setTimeout(() => {
-      setLoaded(true);
-    }, 1000); // Adjust the delay time as needed
-
-    // Clear the timeout on component unmount to prevent memory leaks
-    return () => clearTimeout(timer);
-  }, []);
 
   // Event handler for category selection change
-  const handleCategoryChange = (e) => {
-    const category = e.target.value;
+  const handleCategoryChange = (category) => {
     setSelectedCategory(category);
 
     // Filter images based on selected category
@@ -71,17 +59,19 @@ const page = () => {
         </h1>
       </div>
 
-      <div className="container mt-10 flex lg:justify-start md:justify-start justify-center">
-        {/* Category dropdown */}
-        <select
-          className="border border-gray-300 rounded-md px-3 py-3 outline-none focus:border-tertiary bg-tertiary text-black dark:text-white "
-          value={selectedCategory}
-          onChange={handleCategoryChange}
+      <div className="container mt-10 flex lg:justify-start justify-center gap-8">
+        <div
+          className="bg-primary text-white px-8 py-3 rounded-lg "
+          onClick={() => handleCategoryChange("residential")}
         >
-          <option value="">Choose Category</option>
-          <option value="residential">Residential Interior</option>
-          <option value="commercial">Commercial Interior</option>
-        </select>
+          Residential Interior
+        </div>
+        <div
+          className="bg-primary text-white px-8 py-3 rounded-lg"
+          onClick={() => handleCategoryChange("commercial")}
+        >
+          Commercial Interior
+        </div>
       </div>
 
       <div className="container grid lg:grid-cols-2 gap-8 py-8">

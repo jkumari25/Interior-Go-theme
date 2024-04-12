@@ -13,7 +13,7 @@ const CtaSection = () => {
           initial="offscreen"
           whileInView={"onscreen"}
           variants={titleVariants}
-          className="text-3xl font-bold tracking-tight sm:text-4xl"
+          className="lg:text-6xl font-bold tracking-tight text-4xl"
         >
           Get in Touch
         </motion.h2>

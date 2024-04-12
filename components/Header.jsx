@@ -31,10 +31,10 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo Section */}
-          <Link href="/">
+          {/* <Link href="/">
             <h2 className="text-4xl font-bold text-primary">INTERIOR GO</h2>
-          </Link>
-          {/* <Logo /> */}
+          </Link> */}
+          <Logo />
           <div className="flex items-center gap-x-6">
             {/* Nav section */}
             <Nav
