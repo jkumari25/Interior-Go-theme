@@ -64,7 +64,7 @@ const Page = () => {
           Gallery
         </h1>
       </div>
-      <div className="container mt-10 flex justify-start">
+      <div className="container mt-10 flex lg:justify-start justify-center">
         {/* Category dropdown */}
         <select
           className="border border-gray-300 rounded-md px-3 py-3 outline-none focus:border-tertiary bg-tertiary text-black dark:text-white"
@@ -76,7 +76,7 @@ const Page = () => {
           <option value="commercial">Commercial Interior</option>
         </select>
       </div>
-      <div className="container py-20">
+      <div className="container lg:py-20 py-10">
         <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
           <Masonry gutter="16px">
             {/* Mapping filtered images array to render images */}

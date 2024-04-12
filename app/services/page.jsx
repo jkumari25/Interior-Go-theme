@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { desVariants, titleVariants } from "@/utils/animation";
@@ -12,6 +12,7 @@ const projects = [
       "Experience the charm of modern design in this family bedroom, boasting a clean and inviting atmosphere for utmost comfort.",
     image: "/assets/projects/project-3.jpg",
     link: "",
+    category: "residential",
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const projects = [
       "The kitchen: a hub of culinary creativity and familial connection, where delicious aromas mingle with laughter and love.",
     image: "/assets/projects/project-1.jpeg",
     link: "",
+    category: "commercial",
   },
   {
     id: 3,
@@ -28,21 +30,54 @@ const projects = [
       "The living room: the heart of the home, where comfort meets connection and memories are made.",
     image: "/assets/projects/project-2.jpeg",
     link: "",
+    category: "residential",
   },
 ];
 
 const page = () => {
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [filteredImages, setFilteredImages] = useState(projects);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // Set a timeout to simulate a delay for the transition effect
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 1000); // Adjust the delay time as needed
+
+    // Clear the timeout on component unmount to prevent memory leaks
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Event handler for category selection change
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+
+    // Filter images based on selected category
+    if (category === "") {
+      setFilteredImages(projects);
+    } else {
+      const filtered = projects.filter((image) => image.category === category);
+      setFilteredImages(filtered);
+    }
+  };
+
   return (
     <div>
       <div className="bg-[url('/assets/projects/Sofa.png')] bg-center bg-cover">
-        <h1 className="container py-36 text-6xl font-semibold tracking-widest text-white">
+        <h1 className="container lg:py-36 py-10 text-6xl font-semibold tracking-widest text-white">
           Our Services
         </h1>
       </div>
 
-      <div className="container mt-10 flex justify-start">
+      <div className="container mt-10 flex lg:justify-start md:justify-start justify-center">
         {/* Category dropdown */}
-        <select className="border border-gray-300 rounded-md px-3 py-3 outline-none focus:border-tertiary bg-tertiary text-black dark:text-white">
+        <select
+          className="border border-gray-300 rounded-md px-3 py-3 outline-none focus:border-tertiary bg-tertiary text-black dark:text-white "
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+        >
           <option value="">Choose Category</option>
           <option value="residential">Residential Interior</option>
           <option value="commercial">Commercial Interior</option>
@@ -50,7 +85,7 @@ const page = () => {
       </div>
 
       <div className="container grid lg:grid-cols-2 gap-8 py-8">
-        {projects.map((project) => (
+        {filteredImages.map((project) => (
           <div
             key={project.id}
             className="relative overflow-hidden rounded-xl group"
@@ -106,7 +141,7 @@ const page = () => {
               layout="fill"
               objectFit="cover"
               alt="Mission"
-              className="rounded-xl hover:scale-90 transition-all"
+              className="rounded-xl shadow-lg transition-transform  hover:scale-90 hover:shadow-primary "
             />
           </div>
         </div>
@@ -120,7 +155,7 @@ const page = () => {
             width={800} // Increase width
             height={1200} // Increase height
             alt="Vision"
-            className="rounded-xl hover:scale-90 transition-all"
+            className="rounded-xl shadow-lg transition-transform  hover:scale-90 hover:shadow-primary"
           />
         </div>
         <div className="w-full ">
