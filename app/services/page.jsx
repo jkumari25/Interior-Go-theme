@@ -1,5 +1,8 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { desVariants, titleVariants } from "@/utils/animation";
 
 const projects = [
   {
@@ -37,6 +40,15 @@ const page = () => {
         </h1>
       </div>
 
+      <div className="container mt-10 flex justify-start">
+        {/* Category dropdown */}
+        <select className="border border-gray-300 rounded-md px-3 py-3 outline-none focus:border-tertiary bg-tertiary text-black dark:text-white">
+          <option value="">Choose Category</option>
+          <option value="residential">Residential Interior</option>
+          <option value="commercial">Commercial Interior</option>
+        </select>
+      </div>
+
       <div className="container grid lg:grid-cols-2 gap-8 py-8">
         {projects.map((project) => (
           <div
@@ -64,8 +76,20 @@ const page = () => {
 
       <div className="container lg:h-[500px] h-auto w-full flex lg:flex-row flex-col items-center justify-center bg-tertiary gap-4 mb-28">
         <div className="w-full ">
-          <h2 className="text-5xl font-semibold pb-10">Mission</h2>
-          <p className="text-xl leading-8">
+          <motion.h2
+            initial="offscreen"
+            whileInView={"onscreen"}
+            variants={titleVariants}
+            className="text-5xl font-semibold pb-10"
+          >
+            Mission
+          </motion.h2>
+          <motion.p
+            initial="offscreen"
+            whileInView={"onscreen"}
+            variants={desVariants}
+            className="text-xl leading-8"
+          >
             Our purpose is to craft captivating settings where our clients' life
             stories unfold. We are entrusted with the task of selecting the
             perfect sofa for heart-to-heart conversations, a table where budding
@@ -73,7 +97,7 @@ const page = () => {
             decades later. Within these walls, emotions like hope, joy, sadness,
             and laughter resonate. It's both a privilege and a commitment to
             design spaces that amplify life's experiences.
-          </p>
+          </motion.p>
         </div>
         <div className="w-full ">
           <div className="relative lg:h-[600px] h-[400px]">
@@ -82,7 +106,7 @@ const page = () => {
               layout="fill"
               objectFit="cover"
               alt="Mission"
-              className="rounded-xl"
+              className="rounded-xl hover:scale-90 transition-all"
             />
           </div>
         </div>
@@ -96,12 +120,24 @@ const page = () => {
             width={800} // Increase width
             height={1200} // Increase height
             alt="Vision"
-            className="rounded-xl"
+            className="rounded-xl hover:scale-90 transition-all"
           />
         </div>
         <div className="w-full ">
-          <h2 className="text-5xl font-semibold pb-10">Vision</h2>
-          <p className="text-xl leading-8">
+          <motion.h2
+            initial="offscreen"
+            whileInView={"onscreen"}
+            variants={titleVariants}
+            className="text-5xl font-semibold pb-10"
+          >
+            Vision
+          </motion.h2>
+          <motion.p
+            initial="offscreen"
+            whileInView={"onscreen"}
+            variants={desVariants}
+            className="text-xl leading-8"
+          >
             Our purpose is to craft captivating settings where our clients' life
             stories unfold. We are entrusted with the task of selecting the
             perfect sofa for heart-to-heart conversations, a table where budding
@@ -109,7 +145,7 @@ const page = () => {
             decades later. Within these walls, emotions like hope, joy, sadness,
             and laughter resonate. It's both a privilege and a commitment to
             design spaces that amplify life's experiences.
-          </p>
+          </motion.p>
         </div>
       </div>
     </div>
