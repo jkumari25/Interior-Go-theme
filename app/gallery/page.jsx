@@ -65,13 +65,13 @@ const Page = () => {
       </div>
       <div className="container mt-10 flex lg:justify-start justify-center gap-8">
         <div
-          className="bg-primary text-white px-8 py-3 rounded-lg "
+          className="bg-primary text-white px-8 py-3 rounded-lg text-lg"
           onClick={() => handleCategoryChange("residential")}
         >
           Residential Interior
         </div>
         <div
-          className="bg-primary text-white px-8 py-3 rounded-lg"
+          className="bg-primary text-white px-8 py-3 rounded-lg text-lg"
           onClick={() => handleCategoryChange("commercial")}
         >
           Commercial Interior
