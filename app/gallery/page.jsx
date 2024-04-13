@@ -59,7 +59,7 @@ const Page = () => {
           loaded ? "scale-95" : "scale-110"
         }`}
       >
-        <h1 className="container py-28 text-6xl font-semibold text-white tracking-widest text-center lg:py-32">
+        <h1 className="container py-28 text-6xl font-semibold text-white tracking-widest text-center lg:py-36">
           Gallery
         </h1>
       </div>
